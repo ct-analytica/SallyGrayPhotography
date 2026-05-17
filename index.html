@@ -538,6 +538,92 @@
             .car-slide { flex: 0 0 calc(80% - 5px); }
             .hero-name { font-size: 2.8rem; }
         }
+
+        /* ── PORTFOLIO CAROUSEL ── */
+        .pcar-outer { overflow: hidden; border-radius: 20px; margin-bottom: 72px; }
+        .pcar-container {
+            position: relative;
+            width: 100%; height: 500px;
+            background: var(--cream);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.12);
+            border-radius: 20px;
+        }
+        .pcar-slide { position: relative; width: 100%; height: 100%; border-radius: 20px; }
+        .pcar-item {
+            width: 200px; height: 300px;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            border-radius: 20px;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.4);
+            background-position: center; background-size: cover;
+            background-color: var(--green);
+            transition: all 0.5s;
+        }
+        .pcar-slide .pcar-item:nth-child(1),
+        .pcar-slide .pcar-item:nth-child(2) {
+            top: 0; left: 0; transform: none;
+            width: 100%; height: 100%; border-radius: 20px;
+        }
+        .pcar-slide .pcar-item:nth-child(3) { left: 50%; }
+        .pcar-slide .pcar-item:nth-child(4) { left: calc(50% + 220px); }
+        .pcar-slide .pcar-item:nth-child(5) { left: calc(50% + 440px); }
+        .pcar-slide .pcar-item:nth-child(n+6) { left: calc(50% + 660px); opacity: 0; }
+
+        .pcar-content {
+            position: absolute; top: 50%; left: 100px; width: 300px;
+            transform: translateY(-50%); color: var(--cream); display: none;
+        }
+        .pcar-slide .pcar-item:nth-child(2) .pcar-content { display: block; }
+
+        .pcar-name {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400; letter-spacing: -0.02em;
+            opacity: 0; animation: pcar-in 1s ease-in-out forwards;
+        }
+        .pcar-des {
+            margin-top: 10px; margin-bottom: 24px;
+            font-size: 0.88rem; font-weight: 300; line-height: 1.7;
+            opacity: 0; animation: pcar-in 1s ease-in-out 0.3s forwards;
+        }
+        .pcar-link {
+            display: inline-block;
+            opacity: 0; animation: pcar-in 1s ease-in-out 0.6s forwards;
+            text-decoration: none;
+        }
+        .pcar-link button {
+            padding: 12px 28px; border-radius: 8px; cursor: pointer;
+            background: rgba(255,255,255,0.15);
+            border: 1.5px solid rgba(255,255,255,0.5);
+            color: var(--cream);
+            font-family: var(--sans); font-size: 0.6rem;
+            font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .pcar-link button:hover { background: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.9); }
+
+        @keyframes pcar-in {
+            from { opacity: 0; transform: translateY(40px); filter: blur(12px); }
+            to   { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+
+        .pcar-buttons {
+            position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 12px;
+        }
+        .pcar-buttons button {
+            width: 40px; height: 36px; border-radius: 8px; cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            border: 1.5px solid rgba(255,255,255,0.45);
+            color: var(--cream); font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .pcar-buttons button:hover { background: rgba(255,255,255,0.35); border-color: rgba(255,255,255,0.8); transform: scale(1.1); }
+        .pcar-buttons button:active { transform: scale(1.02); }
+
+        @media (max-width: 768px) {
+            .pcar-container { height: 420px; }
+            .pcar-content { left: 32px; width: calc(100% - 64px); max-width: 280px; }
+        }
     </style>
 </head>
 <body>
@@ -674,68 +760,48 @@
             <a href="#" class="btn r">View All</a>
         </div>
 
-        <!-- Interactive Hover List + Feature Image (desktop) -->
-        <div class="port-interactive r">
-            <ul class="port-list">
-                <!--
-                    data-preview: Set each to the URL of a representative photo for that category.
-                    data-label:   The caption shown in the lightbox.
-                    Upload preview photos to Squarespace and paste the URLs into data-preview="...".
-                -->
-                <li class="port-list-item active" data-index="0"
-                    data-preview=""
-                    data-label="Weddings">
-                    <span class="port-num">01</span>
-                    <span class="port-name">Weddings</span>
-                    <span class="port-count">Full day coverage</span>
-                    <span class="port-arrow">→</span>
-                </li>
-                <li class="port-list-item" data-index="1"
-                    data-preview=""
-                    data-label="Portraits">
-                    <span class="port-num">02</span>
-                    <span class="port-name">Portraits</span>
-                    <span class="port-count">Individual &amp; creative</span>
-                    <span class="port-arrow">→</span>
-                </li>
-                <li class="port-list-item" data-index="2"
-                    data-preview=""
-                    data-label="Families">
-                    <span class="port-num">03</span>
-                    <span class="port-name">Families</span>
-                    <span class="port-count">Natural &amp; relaxed</span>
-                    <span class="port-arrow">→</span>
-                </li>
-                <li class="port-list-item" data-index="3"
-                    data-preview=""
-                    data-label="Commercial">
-                    <span class="port-num">04</span>
-                    <span class="port-name">Commercial</span>
-                    <span class="port-count">Product &amp; brand</span>
-                    <span class="port-arrow">→</span>
-                </li>
-            </ul>
-
-            <!-- Feature image: changes on hover -->
-            <div class="port-feature">
-                <div class="port-feature-slides">
+        <!-- Portfolio Carousel -->
+        <div class="pcar-outer r">
+            <div class="pcar-container">
+                <div class="pcar-slide">
                     <!--
-                        FEATURE IMAGES: For each slide, replace the .img-ph div with:
-                        <img src="YOUR_IMAGE_URL" alt="Category name">
-                        Must match order of the list items above (0–3).
+                        Add your photo URL inside each background-image: url('').
+                        The 2nd item is always the one shown full-width with text.
+                        Items 3 & 4 peek out as small cards on the right.
+                        Clicking Next/Prev cycles through them.
                     -->
-                    <div class="port-feature-slide active" data-slide="0">
-                        <div class="img-ph"><span class="ph-label">Weddings — Feature Image</span></div>
+                    <div class="pcar-item" style="background-image: url('');">
+                        <div class="pcar-content">
+                            <div class="pcar-name">Commercial</div>
+                            <div class="pcar-des">Product and brand photography with an editorial eye — shot with intention and care.</div>
+                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                        </div>
                     </div>
-                    <div class="port-feature-slide" data-slide="1">
-                        <div class="img-ph"><span class="ph-label">Portraits — Feature Image</span></div>
+                    <div class="pcar-item" style="background-image: url('');">
+                        <div class="pcar-content">
+                            <div class="pcar-name">Weddings</div>
+                            <div class="pcar-des">Every real moment, every quiet glance, every joyful tear. Your story told honestly.</div>
+                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                        </div>
                     </div>
-                    <div class="port-feature-slide" data-slide="2">
-                        <div class="img-ph"><span class="ph-label">Families — Feature Image</span></div>
+                    <div class="pcar-item" style="background-image: url('');">
+                        <div class="pcar-content">
+                            <div class="pcar-name">Portraits</div>
+                            <div class="pcar-des">Capturing personality over perfection, in natural light that feels entirely like you.</div>
+                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                        </div>
                     </div>
-                    <div class="port-feature-slide" data-slide="3">
-                        <div class="img-ph"><span class="ph-label">Commercial — Feature Image</span></div>
+                    <div class="pcar-item" style="background-image: url('');">
+                        <div class="pcar-content">
+                            <div class="pcar-name">Families</div>
+                            <div class="pcar-des">Relaxed, natural sessions — kids running, adults laughing. Real families, beautifully documented.</div>
+                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                        </div>
                     </div>
+                </div>
+                <div class="pcar-buttons">
+                    <button class="pcar-prev">◁</button>
+                    <button class="pcar-next">▷</button>
                 </div>
             </div>
         </div>
@@ -1134,6 +1200,20 @@ track.addEventListener('touchend', e => {
         updateCarousel();
     }
 }, { passive: true });
+
+// ── PORTFOLIO CAROUSEL ──
+const pcarNext = document.querySelector('.pcar-next');
+const pcarPrev = document.querySelector('.pcar-prev');
+if (pcarNext && pcarPrev) {
+    pcarNext.addEventListener('click', function() {
+        const items = document.querySelectorAll('.pcar-item');
+        document.querySelector('.pcar-slide').appendChild(items[0]);
+    });
+    pcarPrev.addEventListener('click', function() {
+        const items = document.querySelectorAll('.pcar-item');
+        document.querySelector('.pcar-slide').prepend(items[items.length - 1]);
+    });
+}
 </script>
 </body>
 </html>
