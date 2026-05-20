@@ -624,6 +624,44 @@
             .pcar-container { height: 420px; }
             .pcar-content { left: 32px; width: calc(100% - 64px); max-width: 280px; }
         }
+
+        /* ── JOURNAL ── */
+        #journal { background: var(--white); }
+        .journal-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .journal-img-wrap { position: relative; }
+        .journal-img-wrap .img-ph { aspect-ratio: 4/3; }
+        .journal-meta { display: flex; align-items: center; gap: 20px; margin-bottom: 22px; }
+        .journal-cat {
+            font-size: 0.55rem; font-weight: 600; letter-spacing: 0.28em;
+            text-transform: uppercase; color: var(--cream);
+            background: var(--terracotta); padding: 5px 12px;
+        }
+        .journal-date { font-size: 0.6rem; font-weight: 400; letter-spacing: 0.1em; color: var(--text-light); }
+        .journal-title {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 3vw, 2.4rem);
+            font-weight: 400; color: var(--green);
+            margin-bottom: 24px; line-height: 1.2;
+        }
+        .journal-quote {
+            font-family: var(--serif); font-style: italic;
+            font-size: 0.95rem; color: var(--terracotta);
+            border-left: 2px solid var(--terracotta);
+            padding-left: 20px; margin-bottom: 22px; line-height: 1.8;
+        }
+        .journal-excerpt {
+            font-size: 0.88rem; font-weight: 300; color: var(--text-mid);
+            line-height: 1.9; margin-bottom: 36px;
+        }
+
+        @media (max-width: 768px) {
+            .journal-card { grid-template-columns: 1fr; gap: 40px; }
+        }
     </style>
 </head>
 <body>
@@ -671,6 +709,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#journal">Journal</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -683,6 +722,7 @@
     <a href="#about"     class="mob-link">About</a>
     <a href="#portfolio" class="mob-link">Portfolio</a>
     <a href="#services"  class="mob-link">Services</a>
+    <a href="#journal"   class="mob-link">Journal</a>
     <a href="#contact"   class="mob-link">Contact</a>
 </div>
 
@@ -891,6 +931,50 @@
     </div>
 </section>
 
+<!-- ── JOURNAL ── -->
+<section id="journal" class="sec">
+    <div class="sec-inner">
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px;">
+            <div>
+                <span class="label r">The Journal</span>
+                <h2 class="h2 r">From the <em>Field</em></h2>
+                <div class="rule r"></div>
+            </div>
+        </div>
+
+        <div class="journal-card">
+            <div class="journal-img-wrap r">
+                <!--
+                    JOURNAL IMAGE: Replace below with a photo from the Becca session:
+                    <div class="img-ph"><img src="YOUR_PHOTO_URL" alt="Becca Acupuncture Session"></div>
+                -->
+                <div class="img-ph">
+                    <span class="ph-label">Becca | Session Photo</span>
+                </div>
+            </div>
+
+            <div class="r d1">
+                <div class="journal-meta">
+                    <span class="journal-cat">Business</span>
+                    <span class="journal-date">April 27, 2026</span>
+                </div>
+                <h3 class="journal-title">Becca | Acupuncture</h3>
+                <blockquote class="journal-quote">
+                    "This session felt like a small act of celebration — not just for Becca and her practice, but for the community that had rallied together to rise, renew, and to thrive despite terrible loss."
+                </blockquote>
+                <p class="journal-excerpt">In a sun-soaked room at Marshall High Studio, a branding session became something far more — a story of resilience, healing, and the extraordinary spirit of Western North Carolina's recovery.</p>
+                <!--
+                    BLOG LINK: Replace # with your full blog post URL.
+                    e.g. href="https://clients.sallygrayphoto.com/-slow-poke-becca"
+                -->
+                <a href="#" target="_blank" class="btn">Read the Story</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- ── INSTAGRAM CAROUSEL ── -->
 <section id="carousel">
     <div class="car-header r">
@@ -981,6 +1065,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#journal">Journal</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://www.instagram.com/sallygrayphotography/" target="_blank">Instagram</a></li>
     </ul>
