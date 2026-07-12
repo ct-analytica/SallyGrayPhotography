@@ -1,0 +1,45 @@
+<!-- ============================================================
+     SALLY GRAY PHOTOGRAPHY — SITE FOOTER
+     Paste this entire file into Squarespace: Settings > Advanced >
+     Code Injection > Footer. It is injected on EVERY page, right
+     before </body>, so it's consistent site-wide just like header.html.
+
+     Page files (index.html, about.html, ...) assume this is already
+     present — they do not redeclare any of it.
+============================================================ -->
+<style>
+    footer { background: var(--green); padding: 56px 48px; text-align: center; }
+    .foot-logo { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 4px; }
+    .foot-logo-img { width: 52px; height: 52px; object-fit: contain; }
+    .foot-logo-text .n { font-family: var(--serif); font-size: 1.8rem; color: var(--cream); display: block; }
+    .foot-logo-text .s { font-family: var(--sans); font-size: 0.52rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-top: 4px; display: block; }
+    .foot-rule { width: 38px; height: 1px; background: var(--gold); margin: 24px auto; }
+    .foot-links { display: flex; justify-content: center; gap: 32px; list-style: none; margin-bottom: 28px; }
+    .foot-links a { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240,228,210,0.5); text-decoration: none; transition: color 0.2s; }
+    .foot-links a:hover { color: var(--cream); }
+    .foot-copy { font-size: 0.62rem; color: rgba(240,228,210,0.3); letter-spacing: 0.05em; }
+
+    @media (max-width: 768px) {
+        .foot-links { flex-wrap: wrap; gap: 18px; }
+    }
+</style>
+
+<footer>
+    <div class="foot-logo">
+        <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/footerLogo.jpeg?raw=true" alt="Sally Gray Photography" class="foot-logo-img">
+        <div class="foot-logo-text">
+            <span class="n">Sally Gray</span>
+            <span class="s">Photography</span>
+        </div>
+    </div>
+    <div class="foot-rule"></div>
+    <ul class="foot-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#journal">Journal</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="https://www.instagram.com/sallygrayphotography/" target="_blank">Instagram</a></li>
+    </ul>
+    <p class="foot-copy">&copy; 2026 Sally Gray Photography. All rights reserved.</p>
+</footer>

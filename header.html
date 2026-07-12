@@ -182,6 +182,20 @@
 <!-- ── CUSTOM CURSOR ── -->
 <div class="custom-cursor" id="cursor"></div>
 
+<!--
+    FALLBACK — DOUBLE HEADER FIX:
+    If Squarespace's own template header (logo/nav from Design > Header)
+    is still enabled, it can render underneath this custom nav and appear
+    to "double up" once you scroll and this nav gets its opaque .scrolled
+    background. Preferred fix: disable the native header in Design >
+    Header so only this one renders. If your template doesn't offer that
+    toggle, uncomment the rule below to force-hide it instead — swap in
+    whatever selector actually wraps it (inspect the live page to confirm;
+    #header / .Header are the common ones across templates).
+
+    <style>#header, .Header { display: none !important; }</style>
+-->
+
 <!-- ── NAVIGATION ── -->
 <nav id="main-nav">
     <a href="index.html" class="nav-logo">
