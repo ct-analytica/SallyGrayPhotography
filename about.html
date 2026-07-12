@@ -9,8 +9,9 @@
         The nav, custom cursor, fonts, color tokens, and shared component
         styles (.sec, .label, .h2, .rule, .btn, .img-ph, .r scroll-reveal,
         botanical divider) live in header.html, pasted into Squarespace's
-        Code Injection > Header. This file only holds what's unique to
-        the About page.
+        Code Injection > Header. The footer lives in footer.html, pasted
+        into Code Injection > Footer. This file only holds what's unique
+        to the About page.
     -->
     <style>
         /* ── PAGE INTRO ── */
@@ -73,18 +74,6 @@
         .about-cta-text { font-size: 0.9rem; font-weight: 300; color: var(--text-mid); line-height: 1.95; margin-bottom: 44px; }
         .about-cta-buttons { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
-        /* ── FOOTER (matches sitewide footer content on every page) ── */
-        footer { background: var(--green); padding: 56px 48px; text-align: center; }
-        .foot-logo { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 4px; }
-        .foot-logo-img { width: 52px; height: 52px; object-fit: contain; }
-        .foot-logo-text .n { font-family: var(--serif); font-size: 1.8rem; color: var(--cream); display: block; }
-        .foot-logo-text .s { font-family: var(--sans); font-size: 0.52rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-top: 4px; display: block; }
-        .foot-rule { width: 38px; height: 1px; background: var(--gold); margin: 24px auto; }
-        .foot-links { display: flex; justify-content: center; gap: 32px; list-style: none; margin-bottom: 28px; }
-        .foot-links a { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(240,228,210,0.5); text-decoration: none; transition: color 0.2s; }
-        .foot-links a:hover { color: var(--cream); }
-        .foot-copy { font-size: 0.62rem; color: rgba(240,228,210,0.3); letter-spacing: 0.05em; }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .about-hero { padding: 140px 24px 72px; }
@@ -92,16 +81,16 @@
             .bio-grid.flip .bio-img-wrap { order: 0; }
             .bio-accent, .bio-grid.flip .bio-accent { display: none; }
             .ethos-grid { grid-template-columns: 1fr; gap: 12px; }
-            .foot-links { flex-wrap: wrap; gap: 18px; }
         }
     </style>
 </head>
 <body>
 
+<main>
 <!-- ── PAGE INTRO ── -->
 <section class="about-hero sec">
     <span class="label r" style="text-align:center;">About Sally</span>
-    <h1 class="h2 r" style="text-align:center;">Hi There!</h1>
+    <h1 class="h2 r" style="text-align:center;">Hi There, I'm Sally Gray</h1>
     <div class="rule r" style="margin-left:auto; margin-right:auto;"></div>
     <p class="lead r d1">I'm obsessed with finding and capturing exceptional photos — and I'd love to tell you why.</p>
 </section>
@@ -210,27 +199,7 @@
         </div>
     </div>
 </section>
-
-<!-- ── FOOTER ── -->
-<footer>
-    <div class="foot-logo">
-        <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/footerLogo.jpeg?raw=true" alt="Sally Gray Photography" class="foot-logo-img">
-        <div class="foot-logo-text">
-            <span class="n">Sally Gray</span>
-            <span class="s">Photography</span>
-        </div>
-    </div>
-    <div class="foot-rule"></div>
-    <ul class="foot-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="index.html#portfolio">Portfolio</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#journal">Journal</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="https://www.instagram.com/sallygrayphotography/" target="_blank">Instagram</a></li>
-    </ul>
-    <p class="foot-copy">&copy; 2026 Sally Gray Photography. All rights reserved.</p>
-</footer>
+</main>
 
 </body>
 </html>
