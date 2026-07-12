@@ -4,129 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sally Gray Photography</title>
+
+    <!--
+        The nav, custom cursor, fonts, color tokens, and shared component
+        styles (.sec, .label, .h2, .rule, .btn, .img-ph, .r scroll-reveal,
+        botanical divider) live in header.html, pasted into Squarespace's
+        Code Injection > Header so they're consistent on every page.
+        This file only holds what's unique to the homepage.
+    -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap');
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --terracotta: #C96848;
-            --cream:      #F0E4D2;
-            --green:      #2D4A3D;
-            --gold:       #DEB96A;
-            --bg:         #F2EBE0;
-            --text-dark:  #2D4A3D;
-            --text-mid:   #5C524A;
-            --text-light: #9A8E84;
-            --white:      #FDFAF6;
-            --serif:      'Playfair Display', Georgia, serif;
-            --sans:       'Raleway', Helvetica, sans-serif;
-            --max-w:      1200px;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--bg);
-            color: var(--text-dark);
-            font-family: var(--sans);
-            font-weight: 400;
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            cursor: none; /* hide default cursor on desktop — we draw our own on portfolio hover */
-        }
-
-        @media (max-width: 768px) { body { cursor: auto; } }
-
-        img { max-width: 100%; height: auto; display: block; }
-
-        /* ── CUSTOM CURSOR ── */
-        .custom-cursor {
-            position: fixed;
-            width: 10px; height: 10px;
-            background: var(--terracotta);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-            mix-blend-mode: multiply;
-        }
-        .custom-cursor.big {
-            width: 48px; height: 48px;
-            background: rgba(201, 104, 72, 0.15);
-            border: 1px solid var(--terracotta);
-        }
-
-        @media (max-width: 768px) { .custom-cursor { display: none; } }
-
-        /* ── NAVIGATION ── */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            padding: 20px 48px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
-            border-bottom: 1px solid transparent;
-        }
-        nav.scrolled {
-            background: rgba(242, 235, 224, 0.95);
-            backdrop-filter: blur(12px);
-            padding: 14px 48px;
-            border-color: rgba(45, 74, 61, 0.1);
-        }
-
-        .nav-logo {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            line-height: 1;
-        }
-        .nav-logo-img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-            flex-shrink: 0;
-            transition: opacity 0.3s;
-        }
-        .nav-logo-img:hover { opacity: 0.8; }
-        /* Fallback camera icon if no logo image */
-        .nav-logo-icon {
-            width: 52px; height: 52px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%;
-            background: var(--terracotta);
-            flex-shrink: 0;
-        }
-        .nav-logo-icon svg { width: 26px; height: 26px; fill: var(--cream); }
-        .nav-logo-text { display: flex; flex-direction: column; }
-        .nav-logo .n { display: block; font-family: var(--serif); font-size: 1.55rem; color: var(--green); letter-spacing: -0.01em; }
-        .nav-logo .s { display: block; font-family: var(--sans); font-size: 0.56rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--green); margin-top: 3px; }
-
-        .nav-links { display: flex; gap: 44px; list-style: none; }
-        .nav-links a {
-            font-size: 0.66rem; font-weight: 600; letter-spacing: 0.2em;
-            text-transform: uppercase; text-decoration: none;
-            color: var(--green); transition: opacity 0.2s;
-        }
-        .nav-links a:hover { opacity: 0.5; }
-
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--green); }
-
-        .mob-nav {
-            display: none; position: fixed; inset: 0;
-            background: var(--bg); z-index: 99;
-            flex-direction: column; align-items: center; justify-content: center; gap: 44px;
-        }
-        .mob-nav.open { display: flex; }
-        .mob-nav a { font-family: var(--serif); font-size: 2.5rem; color: var(--green); text-decoration: none; }
-        .mob-close { position: absolute; top: 24px; right: 40px; background: none; border: none; font-family: var(--serif); font-size: 2.2rem; color: var(--green); cursor: pointer; }
-
         /* ── HERO ── */
         #hero {
             min-height: 100vh;
@@ -144,7 +30,6 @@
             margin-bottom: 32px;
             animation: fade-down 0.9s ease forwards;
         }
-        /* Fallback hero logo mark */
         .hero-logo-fallback {
             width: 110px; height: 110px;
             border-radius: 50%;
@@ -181,20 +66,6 @@
             color: var(--text-mid); max-width: 400px; line-height: 1.95; margin-bottom: 52px;
         }
 
-        .btn {
-            display: inline-block;
-            font-family: var(--sans); font-size: 0.62rem; font-weight: 600;
-            letter-spacing: 0.26em; text-transform: uppercase; text-decoration: none;
-            padding: 16px 38px; border: 1.5px solid var(--green);
-            color: var(--green); background: transparent; cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-        }
-        .btn:hover { background: var(--green); color: var(--cream); }
-        .btn-fill { background: var(--green); color: var(--cream); }
-        .btn-fill:hover { background: transparent; color: var(--green); }
-        .btn-tc { border-color: var(--terracotta); color: var(--terracotta); }
-        .btn-tc:hover { background: var(--terracotta); color: var(--cream); }
-
         .scroll-hint {
             position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
             display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -212,35 +83,10 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── SHARED ── */
-        .sec { padding: 108px 48px; }
-        .sec-inner { max-width: var(--max-w); margin: 0 auto; }
-
-        .label { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.32em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px; display: block; }
-        .h2 { font-family: var(--serif); font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 400; color: var(--green); line-height: 1.22; margin-bottom: 28px; }
-        .h2 em { font-style: italic; }
-        .rule { width: 46px; height: 1px; background: var(--terracotta); margin-bottom: 40px; }
-
-        /* ── BOTANICAL DIVIDER ── */
-        .botanical-divider {
-            display: flex; align-items: center; justify-content: center;
-            padding: 0 48px; gap: 24px; overflow: hidden;
-        }
-        .botanical-divider-line { flex: 1; height: 1px; background: rgba(45,74,61,0.12); }
-        .botanical-divider-img {
-            height: 64px; width: auto; opacity: 0.75;
-            object-fit: contain;
-        }
-        /* Fallback if no image: show a small SVG botanical */
-        .botanical-divider-svg { height: 50px; width: 160px; opacity: 0.5; }
-
         /* ── ABOUT ── */
         #about { background: var(--white); }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
         .about-img-wrap { position: relative; }
-        .img-ph { width: 100%; aspect-ratio: 3/4; background: var(--cream); border: 1px solid rgba(45,74,61,0.12); display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .img-ph img { width: 100%; height: 100%; object-fit: cover; }
-        .img-ph .ph-label { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); }
         .about-accent { position: absolute; bottom: -18px; right: -18px; width: 55%; height: 55%; border: 1.5px solid var(--terracotta); z-index: -1; pointer-events: none; }
         .about-content p { font-size: 0.92rem; font-weight: 300; color: var(--text-mid); margin-bottom: 18px; line-height: 1.95; }
         .about-content p.lead { font-family: var(--serif); font-size: 1.18rem; font-style: italic; color: var(--green); font-weight: 400; margin-bottom: 26px; }
@@ -248,7 +94,6 @@
         /* ── PORTFOLIO ── */
         #portfolio { background: var(--bg); }
 
-        /* Interactive hover list */
         .port-interactive {
             display: grid;
             grid-template-columns: 55% 45%;
@@ -290,7 +135,6 @@
         }
         .port-list-item:hover .port-arrow { opacity: 1; transform: translateX(0); }
 
-        /* Feature image right side */
         .port-feature {
             position: relative;
             overflow: hidden;
@@ -306,7 +150,6 @@
         .port-feature-slide .img-ph { height: 100%; aspect-ratio: unset; min-height: 480px; }
         .port-feature-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Portfolio photo grid */
         .port-grid-heading {
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 28px;
@@ -333,7 +176,6 @@
         .port-item:hover .port-ph img { transform: scale(1.06); }
         .port-ph .ph-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); }
 
-        /* Overlay on portfolio items */
         .port-overlay {
             position: absolute; inset: 0;
             background: rgba(45,74,61,0);
@@ -424,7 +266,6 @@
         .svc-title { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--cream); margin-bottom: 14px; line-height: 1.2; }
         .svc-desc { font-size: 0.8rem; font-weight: 300; color: rgba(240,228,210,0.62); line-height: 1.85; }
 
-        /* Camera icon in services header */
         .svc-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 48px; }
         .svc-header-text { flex: 1; }
         .svc-cam-img { width: 80px; height: 80px; object-fit: contain; opacity: 0.6; }
@@ -486,14 +327,6 @@
         .foot-links a:hover { color: var(--cream); }
         .foot-copy { font-size: 0.62rem; color: rgba(240,228,210,0.3); letter-spacing: 0.05em; }
 
-        /* ── SCROLL REVEAL ── */
-        .r { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-        .r.in { opacity: 1; transform: translateY(0); }
-        .d1 { transition-delay: 0.1s; }
-        .d2 { transition-delay: 0.2s; }
-        .d3 { transition-delay: 0.3s; }
-        .d4 { transition-delay: 0.4s; }
-
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
@@ -501,13 +334,6 @@
         }
 
         @media (max-width: 768px) {
-            .sec { padding: 72px 24px; }
-            nav { padding: 18px 24px; }
-            nav.scrolled { padding: 12px 24px; }
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .nav-logo .n { font-size: 1.25rem; }
-
             #hero { padding: 100px 24px 80px; }
             .hero-logo { width: 80px; height: 80px; }
             .hero-logo-fallback { width: 80px; height: 80px; }
@@ -666,9 +492,6 @@
 </head>
 <body>
 
-<!-- ── CUSTOM CURSOR ── -->
-<div class="custom-cursor" id="cursor"></div>
-
 <!-- ── CURSOR PREVIEW (portfolio) ── -->
 <div class="cursor-preview" id="cursor-preview">
     <!--
@@ -694,36 +517,6 @@
         <p class="lb-caption" id="lb-caption"></p>
         <p class="lb-counter" id="lb-counter"></p>
     </div>
-</div>
-
-<!-- ── NAVIGATION ── -->
-<nav id="main-nav">
-    <a href="#hero" class="nav-logo">
-        <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/Logo.png?raw=true" alt="Sally Gray Photography" class="nav-logo-img">
-        <div class="nav-logo-text">
-            <span class="n">Sally Gray</span>
-            <span class="s">Photography</span>
-        </div>
-    </a>
-    <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#journal">Journal</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-    </button>
-</nav>
-
-<div class="mob-nav" id="mob-nav">
-    <button class="mob-close" id="mob-close">×</button>
-    <a href="#about"     class="mob-link">About</a>
-    <a href="#portfolio" class="mob-link">Portfolio</a>
-    <a href="#services"  class="mob-link">Services</a>
-    <a href="#journal"   class="mob-link">Journal</a>
-    <a href="#contact"   class="mob-link">Contact</a>
 </div>
 
 <!-- ── HERO ── -->
@@ -754,12 +547,8 @@
         <div class="about-grid">
 
             <div class="about-img-wrap r">
-                <!--
-                    ABOUT PHOTO: Replace below with your portrait photo:
-                    <div class="img-ph"><img src="YOUR_PHOTO_URL" alt="Sally Gray"></div>
-                -->
                 <div class="img-ph">
-                    <span class="ph-label">Your Portrait Here</span>
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/SallyGray.jpg?raw=true" alt="Sally Gray, photographer">
                 </div>
                 <div class="about-accent"></div>
             </div>
@@ -770,10 +559,13 @@
                 <div class="rule r"></div>
                 <div class="r d1">
                     <p class="lead">"Wildly disinterested in content creation. Entirely obsessed with the human experience."</p>
-                    <p>Based in [Your Location], I pick up a camera to preserve the real — unscripted laughter, quiet in-between moments, and the beauty that lives in the everyday.</p>
-                    <p>My approach is slow, intentional, and rooted in genuine connection. Whether it's your wedding day, an afternoon with your family, or a quiet portrait session — I want you to forget I'm there, and feel everything when you look back.</p>
+                    <p>I'm Sally Gray — with almost 10 years behind the camera, I bring an arsenal of posing guidance, technical skill, and the unshakable scrappiness you want in the person tasked with capturing your dynamic, fast-moving day.</p>
+                    <p>My style blends digital and film seamlessly — rich color, true-to-life skin tones, and an eye trained on natural light. Whether it's your wedding day, an afternoon with your family, or a quiet portrait session, I want you to forget I'm there, and feel everything when you look back.</p>
                 </div>
-                <a href="#contact" class="btn r d2" style="margin-top:24px;">Work With Me</a>
+                <div class="r d2" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:24px;">
+                    <a href="about.html" class="btn">Read My Story</a>
+                    <a href="#contact" class="btn btn-fill">Work With Me</a>
+                </div>
             </div>
 
         </div>
@@ -797,7 +589,7 @@
                 <h2 class="h2 r">Portfolio</h2>
                 <div class="rule r"></div>
             </div>
-            <a href="#" class="btn r">View All</a>
+            <a href="https://clients.sallygrayphoto.com/portfolio" class="btn r">View All</a>
         </div>
 
         <!-- Portfolio Carousel -->
@@ -1062,55 +854,26 @@
     </div>
     <div class="foot-rule"></div>
     <ul class="foot-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#journal">Journal</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#journal">Journal</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
         <li><a href="https://www.instagram.com/sallygrayphotography/" target="_blank">Instagram</a></li>
     </ul>
     <p class="foot-copy">&copy; 2026 Sally Gray Photography. All rights reserved.</p>
 </footer>
 
 <script>
-// ── CUSTOM CURSOR ──
-const cursor = document.getElementById('cursor');
-let cx = 0, cy = 0;
-document.addEventListener('mousemove', e => {
-    cx = e.clientX; cy = e.clientY;
-    cursor.style.left = cx + 'px';
-    cursor.style.top  = cy + 'px';
-});
-document.querySelectorAll('a, button, .port-list-item, .port-item, .car-slide').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('big'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
-});
-
-// ── NAV SCROLL ──
-const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-}, { passive: true });
-
-// ── MOBILE NAV ──
-const hamburger = document.getElementById('hamburger');
-const mobNav    = document.getElementById('mob-nav');
-const mobClose  = document.getElementById('mob-close');
-hamburger.addEventListener('click', () => mobNav.classList.add('open'));
-mobClose.addEventListener('click',  () => mobNav.classList.remove('open'));
-document.querySelectorAll('.mob-link').forEach(a => {
-    a.addEventListener('click', () => mobNav.classList.remove('open'));
-});
-
-// ── SCROLL REVEAL ──
-const ro = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
+// ── EXTEND SHARED CURSOR TO PAGE-SPECIFIC INTERACTIVE ELEMENTS ──
+// header.html only binds the custom-cursor "big" state to <a>/<button>;
+// these elements are specific to the homepage.
+document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.getElementById('cursor');
+    document.querySelectorAll('.port-list-item, .port-item, .car-slide').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
     });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.r').forEach(el => ro.observe(el));
-window.addEventListener('load', () => {
-    document.querySelectorAll('#hero .r').forEach(el => el.classList.add('in'));
 });
 
 // ── PORTFOLIO INTERACTIVE HOVER (cursor follower + feature image swap) ──
