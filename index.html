@@ -21,7 +21,9 @@
             align-items: center; justify-content: center;
             text-align: center;
             padding: 120px 40px 100px;
-            background: var(--bg);
+            background:
+                linear-gradient(180deg, rgba(15,20,15,0.62) 0%, rgba(15,20,15,0.4) 45%, rgba(15,20,15,0.65) 100%),
+                url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/wedding-caroline-josh-008.jpg?raw=true') center 38% / cover no-repeat;
             position: relative; overflow: hidden;
         }
 
@@ -29,6 +31,7 @@
             width: 110px; height: 110px;
             object-fit: contain;
             margin-bottom: 32px;
+            filter: drop-shadow(0 6px 20px rgba(0,0,0,0.4));
             animation: fade-down 0.9s ease forwards;
         }
         .hero-logo-fallback {
@@ -42,38 +45,53 @@
 
         .hero-eye {
             font-size: 0.62rem; font-weight: 600; letter-spacing: 0.36em;
-            text-transform: uppercase; color: var(--terracotta);
+            text-transform: uppercase; color: var(--gold);
             margin-bottom: 26px;
         }
         .hero-name {
             font-family: var(--serif);
             font-size: clamp(3.2rem, 7vw, 6.8rem);
             font-weight: 400;
-            color: var(--green);
+            color: var(--cream);
             line-height: 1.08;
             margin-bottom: 10px;
             letter-spacing: -0.02em;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.4);
         }
         .hero-sub {
             font-family: var(--sans);
             font-size: clamp(0.6rem, 1.2vw, 0.72rem);
             font-weight: 600; letter-spacing: 0.38em;
-            text-transform: uppercase; color: var(--terracotta);
+            text-transform: uppercase; color: var(--gold);
             margin-bottom: 32px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
         }
-        .hero-rule { width: 52px; height: 1px; background: var(--terracotta); margin: 0 auto 30px; }
+        .hero-rule { width: 52px; height: 1px; background: var(--gold); margin: 0 auto 30px; }
         .hero-tag {
             font-size: 0.9rem; font-weight: 300; letter-spacing: 0.03em;
-            color: var(--text-mid); max-width: 400px; line-height: 1.95; margin-bottom: 52px;
+            color: rgba(253,250,246,0.88); max-width: 400px; line-height: 1.95; margin-bottom: 52px;
+            text-shadow: 0 2px 14px rgba(0,0,0,0.35);
         }
+
+        #hero .btn { border-color: var(--cream); color: var(--cream); }
+        #hero .btn:hover { background: var(--cream); color: var(--green); }
 
         .scroll-hint {
             position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
             display: flex; flex-direction: column; align-items: center; gap: 10px;
             animation: bob 2.2s ease-in-out infinite;
         }
-        .scroll-hint span { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-light); }
-        .scroll-hint-line { width: 1px; height: 38px; background: linear-gradient(to bottom, var(--terracotta), transparent); }
+        .scroll-hint span { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(253,250,246,0.8); }
+        .scroll-hint-line { width: 1px; height: 38px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+        /* The nav is transparent until scrolled, so at rest it sits directly on
+           the new hero photo — swap its text to light while unscrolled so it
+           doesn't disappear against the image. Once .scrolled adds the opaque
+           bar, header.html's default dark-green nav text takes back over. */
+        #main-nav:not(.scrolled) .nav-logo .n,
+        #main-nav:not(.scrolled) .nav-logo .s,
+        #main-nav:not(.scrolled) .nav-links a { color: var(--cream); }
+        #main-nav:not(.scrolled) .hamburger span { background: var(--cream); }
 
         @keyframes bob {
             0%,100% { transform: translateX(-50%) translateY(0); }
@@ -254,18 +272,11 @@
         .lb-next { right: 24px; }
         .lb-prev svg, .lb-next svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
-        /* ── SERVICES ── */
-        #services { background: var(--green); }
-        #services .label  { color: var(--gold); }
-        #services .h2     { color: var(--cream); }
-        #services .rule   { background: var(--gold); }
-
-        .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
-        .svc-card { padding: 44px 32px; border: 1px solid rgba(240,228,210,0.12); transition: border-color 0.3s, background 0.3s; }
-        .svc-card:hover { border-color: var(--gold); background: rgba(240,228,210,0.04); }
-        .svc-num { display: block; font-family: var(--serif); font-size: 0.78rem; font-style: italic; color: var(--gold); margin-bottom: 20px; }
-        .svc-title { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--cream); margin-bottom: 14px; line-height: 1.2; }
-        .svc-desc { font-size: 0.8rem; font-weight: 300; color: rgba(240,228,210,0.62); line-height: 1.85; }
+        /* ── EXPERIENCES ── */
+        #experiences { background: var(--green); }
+        #experiences .label  { color: var(--gold); }
+        #experiences .h2     { color: var(--cream); }
+        #experiences .rule   { background: var(--gold); }
 
         .svc-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 48px; }
         .svc-header-text { flex: 1; }
@@ -316,7 +327,6 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
-            .svc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
             .port-interactive { grid-template-columns: 1fr 1fr; }
         }
 
@@ -332,7 +342,6 @@
             .port-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
             .port-item:nth-child(1), .port-item:nth-child(4) { grid-column: span 2; }
 
-            .svc-grid { grid-template-columns: 1fr; gap: 12px; }
             .svc-header { flex-direction: column; gap: 20px; }
 
             .car-track { padding: 0 24px; }
@@ -370,6 +379,13 @@
             background-color: var(--green);
             transition: all 0.5s;
         }
+        /* Stacking: the featured card (2) must always paint above the peeking
+           cards (3, 4, ...), which sit above the hidden backer card (1) —
+           otherwise the peeking cards visually cover the featured photo. */
+        .pcar-slide .pcar-item:nth-child(1) { z-index: 1; }
+        .pcar-slide .pcar-item:nth-child(n+3) { z-index: 2; }
+        .pcar-slide .pcar-item:nth-child(2) { z-index: 3; }
+
         .pcar-slide .pcar-item:nth-child(1),
         .pcar-slide .pcar-item:nth-child(2) {
             top: 0; left: 0; transform: none;
@@ -379,6 +395,15 @@
         .pcar-slide .pcar-item:nth-child(4) { left: calc(50% + 220px); }
         .pcar-slide .pcar-item:nth-child(5) { left: calc(50% + 440px); }
         .pcar-slide .pcar-item:nth-child(n+6) { left: calc(50% + 660px); opacity: 0; }
+
+        /* Scrim so the name/description stay legible over any photo */
+        .pcar-slide .pcar-item:nth-child(2)::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(100deg, rgba(15,20,15,0.8) 0%, rgba(15,20,15,0.5) 38%, rgba(15,20,15,0.08) 68%, rgba(15,20,15,0) 85%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
 
         .pcar-content {
             position: absolute; top: 50%; left: 100px; width: 300px;
@@ -390,11 +415,13 @@
             font-family: var(--serif);
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 400; letter-spacing: -0.02em;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.45);
             opacity: 0; animation: pcar-in 1s ease-in-out forwards;
         }
         .pcar-des {
             margin-top: 10px; margin-bottom: 24px;
             font-size: 0.88rem; font-weight: 300; line-height: 1.7;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.45);
             opacity: 0; animation: pcar-in 1s ease-in-out 0.3s forwards;
         }
         .pcar-link {
@@ -421,6 +448,7 @@
         .pcar-buttons {
             position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
             display: flex; gap: 12px;
+            z-index: 10;
         }
         .pcar-buttons button {
             width: 40px; height: 36px; border-radius: 8px; cursor: pointer;
@@ -579,38 +607,85 @@
             <a href="https://clients.sallygrayphoto.com/portfolio" class="btn r">View All</a>
         </div>
 
-        <!-- Portfolio Carousel -->
+        <!-- Photo grid with lightbox -->
+        <div class="port-grid-heading r">
+            <p class="port-grid-title">Recent Work</p>
+        </div>
+
+        <div class="port-grid">
+            <div class="port-item r" data-lb-index="0" data-src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/wedding-gigi-andre-009.jpg?raw=true" data-label="Weddings">
+                <div class="port-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/wedding-gigi-andre-009.jpg?raw=true" alt="Newlyweds cheering with their wedding party">
+                    <div class="port-overlay"><span class="port-overlay-label">Weddings</span></div>
+                </div>
+            </div>
+            <div class="port-item r d1" data-lb-index="1" data-src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/portrait-001.jpg?raw=true" data-label="Portraits">
+                <div class="port-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/portrait-001.jpg?raw=true" alt="Portrait of a woman in a flower-crowned hat under oak trees">
+                    <div class="port-overlay"><span class="port-overlay-label">Portraits</span></div>
+                </div>
+            </div>
+            <div class="port-item r d2" data-lb-index="2" data-src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/elopement-zach-jessica-004.jpg?raw=true" data-label="Engagements">
+                <div class="port-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/elopement-zach-jessica-004.jpg?raw=true" alt="Engaged couple kissing on a Blue Ridge mountain overlook">
+                    <div class="port-overlay"><span class="port-overlay-label">Engagements</span></div>
+                </div>
+            </div>
+            <div class="port-item r d1" data-lb-index="3" data-src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/wedding-caroline-josh-005.jpg?raw=true" data-label="Weddings">
+                <div class="port-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/wedding-caroline-josh-005.jpg?raw=true" alt="Wide shot of an outdoor wedding ceremony under an open sky">
+                    <div class="port-overlay"><span class="port-overlay-label">Weddings</span></div>
+                </div>
+            </div>
+            <div class="port-item r d2" data-lb-index="4" data-src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/family-victoria-phanthavong-001.jpg?raw=true" data-label="Families">
+                <div class="port-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/SitePhotos/family-victoria-phanthavong-001.jpg?raw=true" alt="Family of five picking blueberries together in a field">
+                    <div class="port-overlay"><span class="port-overlay-label">Families</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── EXPERIENCES ── -->
+<section id="experiences" class="sec">
+    <div class="sec-inner">
+        <div class="svc-header">
+            <div class="svc-header-text">
+                <span class="label r">What I Offer</span>
+                <h2 class="h2 r">Experiences</h2>
+                <div class="rule r"></div>
+            </div>
+            <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/camera.png?raw=true" alt="" class="svc-cam-img">
+        </div>
+
+        <!-- Experiences Carousel -->
         <div class="pcar-outer r">
             <div class="pcar-container">
                 <div class="pcar-slide">
-                    <!--
-                        Add your photo URL inside each background-image: url('').
-                        The 2nd item is always the one shown full-width with text.
-                        Items 3 & 4 peek out as small cards on the right.
-                        Clicking Next/Prev cycles through them.
-                    -->
-                    <div class="pcar-item" style="background-image: url('');">
+                    <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/elopement-zach-jessica-001.jpg?raw=true');">
                         <div class="pcar-content">
-                            <div class="pcar-name">Commercial</div>
-                            <div class="pcar-des">Product and brand photography with an editorial eye — shot with intention and care.</div>
+                            <div class="pcar-name">Engagements</div>
+                            <div class="pcar-des">Intimate engagement and elopement sessions — the quiet, tender lead-up to your wedding day, captured with the same honesty and care.</div>
                             <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
                         </div>
                     </div>
-                    <div class="pcar-item" style="background-image: url('');">
+                    <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/wedding-hadley-carlos-002.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Weddings</div>
                             <div class="pcar-des">Every real moment, every quiet glance, every joyful tear. Your story told honestly.</div>
                             <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
                         </div>
                     </div>
-                    <div class="pcar-item" style="background-image: url('');">
+                    <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/portrait-dex-001.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Portraits</div>
                             <div class="pcar-des">Capturing personality over perfection, in natural light that feels entirely like you.</div>
                             <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
                         </div>
                     </div>
-                    <div class="pcar-item" style="background-image: url('');">
+                    <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/family-001.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Families</div>
                             <div class="pcar-des">Relaxed, natural sessions — kids running, adults laughing. Real families, beautifully documented.</div>
@@ -622,89 +697,6 @@
                     <button class="pcar-prev">◁</button>
                     <button class="pcar-next">▷</button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Photo grid with lightbox -->
-        <div class="port-grid-heading r">
-            <p class="port-grid-title">Recent Work</p>
-        </div>
-
-        <div class="port-grid">
-            <!--
-                PORTFOLIO IMAGES: Replace each .port-ph placeholder with your photos:
-                <div class="port-ph"><img src="YOUR_IMAGE_URL" alt="description"><div class="port-overlay"><span class="port-overlay-label">Category</span></div></div>
-
-                Set data-src="YOUR_IMAGE_URL" and data-label="Caption" on each .port-item
-                to power the lightbox. Set data-index matching position in the grid.
-            -->
-            <div class="port-item r" data-lb-index="0" data-src="" data-label="Weddings">
-                <div class="port-ph">
-                    <span class="ph-label">Feature — Weddings</span>
-                    <div class="port-overlay"><span class="port-overlay-label">Weddings</span></div>
-                </div>
-            </div>
-            <div class="port-item r d1" data-lb-index="1" data-src="" data-label="Portraits">
-                <div class="port-ph">
-                    <span class="ph-label">Portraits</span>
-                    <div class="port-overlay"><span class="port-overlay-label">Portraits</span></div>
-                </div>
-            </div>
-            <div class="port-item r d2" data-lb-index="2" data-src="" data-label="Families">
-                <div class="port-ph">
-                    <span class="ph-label">Families</span>
-                    <div class="port-overlay"><span class="port-overlay-label">Families</span></div>
-                </div>
-            </div>
-            <div class="port-item r d1" data-lb-index="3" data-src="" data-label="Families">
-                <div class="port-ph">
-                    <span class="ph-label">Feature — Families</span>
-                    <div class="port-overlay"><span class="port-overlay-label">Families</span></div>
-                </div>
-            </div>
-            <div class="port-item r d2" data-lb-index="4" data-src="" data-label="Commercial">
-                <div class="port-ph">
-                    <span class="ph-label">Commercial</span>
-                    <div class="port-overlay"><span class="port-overlay-label">Commercial</span></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ── SERVICES ── -->
-<section id="services" class="sec">
-    <div class="sec-inner">
-        <div class="svc-header">
-            <div class="svc-header-text">
-                <span class="label r">What I Offer</span>
-                <h2 class="h2 r">Services</h2>
-                <div class="rule r"></div>
-            </div>
-            <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/camera.png?raw=true" alt="" class="svc-cam-img">
-        </div>
-
-        <div class="svc-grid">
-            <div class="svc-card r">
-                <span class="svc-num">01</span>
-                <h3 class="svc-title">Weddings</h3>
-                <p class="svc-desc">Full-day documentary coverage of your wedding — every real moment, every quiet glance, every joyful tear. No stiff poses, just your story told honestly.</p>
-            </div>
-            <div class="svc-card r d1">
-                <span class="svc-num">02</span>
-                <h3 class="svc-title">Portraits</h3>
-                <p class="svc-desc">Portraits that actually look like you. Individual, couple, and creative sessions in natural light that capture personality over perfection.</p>
-            </div>
-            <div class="svc-card r d2">
-                <span class="svc-num">03</span>
-                <h3 class="svc-title">Families</h3>
-                <p class="svc-desc">Relaxed, natural family sessions. Kids running, adults laughing, dogs doing their thing. Real families, beautifully documented.</p>
-            </div>
-            <div class="svc-card r d3">
-                <span class="svc-num">04</span>
-                <h3 class="svc-title">Commercial</h3>
-                <p class="svc-desc">Product and brand photography with an editorial eye. Jewellery, goods, and creative businesses — shot with intention and care.</p>
             </div>
         </div>
     </div>
