@@ -81,4 +81,10 @@ Three: Observe, observe, observe. The best moments often slip by in the quiet sp
 - general
 
 #### Influences
-https://www.thesmithbrian.com/
+- Idea for vibe: https://www.thesmithbrian.com/
+- Ideas for UI and Photo Display:
+	- https://milkinkstudio.com/ (For eyecatching elements)
+	- https://zahraziaie.com/
+	- https://kaylafisherphotography.com/ (mixed)
+	- https://www.daniloandsharon.com/ (For Flow)
+	- https://www.lizziemayson.com/ (cool vibes)
