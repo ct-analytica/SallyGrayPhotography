@@ -8,6 +8,178 @@
      Page files (index.html, about.html, ...) assume this is already
      present — they do not redeclare any of it.
 ============================================================ -->
+
+<!-- ── STRUCTURED DATA (LocalBusiness + FAQPage) ──
+     Mirrors the FAQ content in about.html verbatim. Helps Google/AI search
+     engines identify this as a Brevard, NC wedding photographer and surface
+     the FAQ directly in rich results / AI answers. Update the FAQPage
+     entries here if the FAQ copy on about.html ever changes. -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.sallygrayphoto.com/#business",
+          "name": "Sally Gray Photography",
+          "image": "https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/Logo.png?raw=true",
+          "url": "https://www.sallygrayphoto.com/",
+          "description": "Western North Carolina wedding and lifestyle photographer based in Brevard, NC, blending documentary storytelling with an editorial eye across both film and digital.",
+          "priceRange": "$700-$6000",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Brevard",
+            "addressRegion": "NC",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Brevard, NC"
+            },
+            {
+              "@type": "Place",
+              "name": "Blue Ridge Mountains"
+            },
+            {
+              "@type": "Place",
+              "name": "Asheville, NC"
+            },
+            {
+              "@type": "Place",
+              "name": "Hendersonville, NC"
+            },
+            {
+              "@type": "Place",
+              "name": "Cashiers, NC"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/sallygrayphotography/"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.sallygrayphoto.com/about#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Where are you based, and where do you photograph weddings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I'm a Western North Carolina wedding and lifestyle photographer based in Brevard, NC, photographing celebrations throughout the Blue Ridge Mountains, Asheville, Hendersonville, Cashiers, and beyond. I love working with couples who are drawn to meaningful places, beautiful landscapes, and photographs that feel like a true reflection of who they are. Whether your wedding day is at a luxe venue, tucked away in the woods, at home with your favorite people, or somewhere completely unexpected — I'm in."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is your photography style?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "My work blends a documentary approach with an editorial eye. I'm drawn to natural moments, thoughtful details, movement, and all the little in-between pieces that become the memories you treasure most. I also have an inner art brat who absolutely lives for a beautifully posed group shot, unusual framing, and those unexpected visual moments that make an image feel like art. I'll guide you when you need it — especially during portraits! — but I never want your photos to feel like a performance. My goal is for you to feel comfortable, present, and completely yourself."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph weddings with film?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! As much as possible. I love incorporating film photography because of its timeless colors, softness, and nostalgic feeling. Digital cameras shine in places where film can struggle, so I use both mediums together to create a complete story of your day. My digital editing style is inspired by my film scans: warm, natural, and true-to-life, with an emphasis on preserving the atmosphere and emotion of your wedding."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How far in advance should we book our wedding photographer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most couples book 12–18 months in advance, especially for popular spring and fall dates in Western North Carolina. That said, I've photographed some wonderful weddings booked only 6–8 months out. If your date is approaching, reach out anyway — I'd love to see if we're a good fit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many hours of wedding photography coverage do we need?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most single-day weddings include 6–10 hours of coverage, but every celebration is different. I also love multi-day weddings, welcome parties, and weekend-long experiences. Whether you're planning an intimate elopement or a full celebration with all your favorite people, I'll help you choose coverage that fits your story — not a cookie-cutter package."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you help with wedding photography timelines?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Creating a relaxed, intentional timeline is one of my favorite parts of the process. I'll help you think through light, weather, travel time, family portraits, and all the moments that matter. My goal is for photography to quietly add to your experience — not make you feel rushed, stressed, or staged."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you travel for weddings and sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! I'm available worldwide, with travel fees that won't require taking out a mortgage. I especially love mountain weddings, outdoor celebrations, and locations with a strong sense of place. Family homes and small venues are just as spectacular to me as sprawling estates and gilded yachts. If you have a dream location, I want to hear about it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph engagement sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Engagement sessions are one of my favorite ways to work together before your wedding day. Wedding clients receive an exclusive discount on engagement sessions, and I love using this time to help you feel comfortable in front of the camera before the big day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should we wear for our session?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best outfits are the ones that make you feel confident and comfortable. I love clothing with movement, texture, and colors that feel natural in your environment. For Western North Carolina sessions, earthy tones, soft layers, and timeless pieces photograph beautifully. Punchy colors and bold silhouettes are a fun and stylish choice as well! I'm always happy to help with outfit ideas and location planning."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph families and couples outside of weddings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! I photograph families, couples, maternity sessions, portraits, and everyday seasons of life. My approach is relaxed and connection-focused. I'm not interested in forcing perfect smiles — although I'm pretty good at coaxing them out of even the grumpiest toddler. I want to capture the relationships, personalities, and little moments that make your family yours."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens after our session or wedding?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "After your session or wedding, I hand-select and edit your digital images with my signature warm, timeless style. You'll receive sneak peeks within 72 hours of your session. Weddings are delivered within 8–12 weeks, and all other sessions are delivered within 4 weeks. While I'm working on the digital side, professional film labs are carefully developing and scanning your film. Your final gallery will be delivered through an online platform where you can view, download, share, and print your images. Printing rights are always included."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why should we choose Sally Gray Photography?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I could tell you about my years of experience, gear list, archives, or the pretty pictures you'll find throughout my website. But here's what I hear again and again from clients, vendors, and fellow photographers: I thrive in chaos. Wedding days are beautiful because they're real — and real things happen. When your timeline shifts, the weather changes, or something unexpected pops up, I'll keep things positive, creative, and fun. You focus on getting married. I'll make sure you look and feel amazing doing it. My approach is playful and calm, intentional and rooted in connection. I'll guide you when you need it, step back when you don't, and make sure your experience feels just as meaningful as the photographs themselves."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does photography cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wedding collections begin at $4,000, with most couples investing between $4,800–$6,000. Family sessions begin at $700. All collections include film photography, printing rights, and planning assistance. These aren't add-ons — they're part of the experience I believe every client deserves."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer payment plans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Girl yes. In this economy?? I love a pay-in-four option as much as the next person, and I'm happy to create custom payment plans for wedding photography. Family and portrait sessions can also be split into two payments for those who need a little more flexibility. If you're excited to work together but feeling nervous about the investment, reach out. Let's talk."
+              }
+            }
+          ]
+        }
+      ]
+    }
+</script>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap');
 
