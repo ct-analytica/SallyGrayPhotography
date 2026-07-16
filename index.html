@@ -338,6 +338,12 @@
         .field textarea { resize: vertical; min-height: 140px; }
         .form-submit { display: flex; justify-content: center; margin-top: 8px; }
 
+        /* Shown after a successful submit, replacing the form */
+        .success-msg { display: none; text-align: center; }
+        .success-mark { font-size: 2rem; color: var(--terracotta); margin-bottom: 16px; }
+        .success-msg p { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 10px; }
+        .success-msg .success-sub { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--text-mid); }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .port-interactive { grid-template-columns: 1fr 1fr; }
@@ -560,7 +566,7 @@
 <!-- ── BOTANICAL DIVIDER ── -->
 <div class="botanical-divider">
     <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
     <div class="botanical-divider-line"></div>
 </div>
 
@@ -670,11 +676,18 @@
 <section id="quote-band">
     <div class="sec-inner">
         <div class="quote-band-mark r">"</div>
-        <p class="quote-band-text r d1">Sally is highly perceptive to her surroundings and pays attention to the little moments you want captured during your wedding day. She does this in an artistic way that truly sets her apart from other photographers.</p>
-        <p class="quote-band-cite r d2">Jolie Connor</p>
+        <p class="quote-band-text r d1">What sets Sally apart is her ability to capture real emotion and connection. Her photos don't just look beautiful; they feel meaningful. She has an incredible eye for relationships and moments, and more than once I've found myself genuinely emotional looking through her work.</p>
+        <p class="quote-band-cite r d2">Alex Hunt North</p>
         <div class="quote-band-rule r d3"></div>
     </div>
 </section>
+
+<!-- ── BOTANICAL DIVIDER ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
 
 <!-- ── EXPERIENCES ── -->
 <section id="experiences" class="sec">
@@ -768,7 +781,7 @@
 <!-- ── BOTANICAL DIVIDER ── -->
 <div class="botanical-divider">
     <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
     <div class="botanical-divider-line"></div>
 </div>
 
@@ -806,7 +819,7 @@
 <!-- ── BOTANICAL DIVIDER 2 ── -->
 <div class="botanical-divider">
     <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
     <div class="botanical-divider-line"></div>
 </div>
 
@@ -818,7 +831,7 @@
         <div class="rule r"></div>
         <p class="contact-text r">I'd love to hear about your vision. Whether you're planning a wedding, wanting family portraits, or have a creative project in mind — reach out and let's make something beautiful together.</p>
 
-        <form class="form r" name="contact" method="POST">
+        <form class="form r" id="contact-form" name="contact" action="https://formspree.io/f/xwvzenkz" method="POST">
             <div class="form-row">
                 <div class="field">
                     <label for="name">Your Name</label>
@@ -845,9 +858,16 @@
                 <textarea id="message" name="message" placeholder="Share your vision, date, or any details…"></textarea>
             </div>
             <div class="form-submit">
-                <button type="submit" class="btn btn-fill">Send Message</button>
+                <button type="submit" class="btn btn-fill" id="submit-btn">Send Message</button>
             </div>
         </form>
+
+        <!-- Success message, shown after submit -->
+        <div class="success-msg" id="success-msg">
+            <div class="success-mark">✦</div>
+            <p>I'll be in touch soon.</p>
+            <p class="success-sub">Thank you for reaching out — can't wait to hear more about your vision.</p>
+        </div>
     </div>
 </section>
 </main>
@@ -1015,6 +1035,38 @@ if (pcarNext && pcarPrev) {
         document.querySelector('.pcar-slide').prepend(items[items.length - 1]);
     });
 }
+
+// ── CONTACT FORM (AJAX submit via Formspree) ──
+const form       = document.getElementById('contact-form');
+const successMsg = document.getElementById('success-msg');
+const submitBtn  = document.getElementById('submit-btn');
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+        const res = await fetch(form.action, {
+            method:  'POST',
+            body:    new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+            form.style.display      = 'none';
+            successMsg.style.display = 'block';
+        } else {
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Send Message';
+            alert('Something went wrong — please try again or email me directly.');
+        }
+    } catch (err) {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong — please try again or email me directly.');
+    }
+});
 </script>
 </body>
 </html>

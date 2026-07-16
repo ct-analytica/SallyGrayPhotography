@@ -340,6 +340,29 @@
     .d3 { transition-delay: 0.3s; }
     .d4 { transition-delay: 0.4s; }
 
+    /* ── FLOWER BLOOM (botanical divider images opt in with .bloom) ── */
+    .botanical-divider-img.bloom {
+        opacity: 0;
+        transform: scale(0.35) rotate(-25deg);
+        transition: opacity 1.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .botanical-divider-img.bloom.in { opacity: 0.75; transform: scale(1) rotate(0deg); }
+
+    /* ── STAGGERED WORD REVEAL (applied automatically to .h2 / .hero-name) ── */
+    .word { display: inline-block; opacity: 0; transform: translateY(0.4em); }
+    .r.in .word { animation: word-in 1.6s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: calc(var(--i, 0) * 0.14s); }
+    @keyframes word-in { to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+        .botanical-divider-img.bloom,
+        .word {
+            transition: none !important;
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+
     /* ── RESPONSIVE (nav + shared layout only — page sections handle their own) ── */
     @media (max-width: 768px) {
         .sec { padding: 72px 24px; }
@@ -426,6 +449,71 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.mob-link').forEach(a => {
         a.addEventListener('click', () => mobNav.classList.remove('open'));
     });
+
+    // ── STAGGERED WORD REVEAL — wrap each word of every heading in its own
+    // span so .word's CSS animation (see <style>) can stagger them in. Runs
+    // before anything is visible (headings start at opacity:0 via .r), so
+    // there's no flash of unsplit text. Recurses into <em>, leaves <br> alone.
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+        const splitWords = (el) => {
+            const walk = (node) => {
+                const frag = document.createDocumentFragment();
+                node.childNodes.forEach(child => {
+                    if (child.nodeType === Node.TEXT_NODE) {
+                        child.textContent.split(/(\s+)/).forEach(part => {
+                            if (part === '') return;
+                            if (/^\s+$/.test(part)) {
+                                frag.appendChild(document.createTextNode(part));
+                            } else {
+                                const span = document.createElement('span');
+                                span.className = 'word';
+                                span.textContent = part;
+                                frag.appendChild(span);
+                            }
+                        });
+                    } else if (child.nodeName === 'BR') {
+                        frag.appendChild(child.cloneNode());
+                    } else {
+                        const clone = child.cloneNode(false);
+                        clone.appendChild(walk(child));
+                        frag.appendChild(clone);
+                    }
+                });
+                return frag;
+            };
+            const fragment = walk(el);
+            el.textContent = '';
+            el.appendChild(fragment);
+            el.querySelectorAll('.word').forEach((w, i) => w.style.setProperty('--i', i));
+        };
+        document.querySelectorAll('.h2, .hero-name').forEach(splitWords);
+    }
+
+    // ── HERO PARALLAX — nudges just the photo layer's vertical position as
+    // #hero scrolls through view. Skipped entirely on reduced-motion, and
+    // does no work once the hero has scrolled out of view.
+    const heroSection = document.getElementById('hero');
+    if (heroSection && !prefersReducedMotion) {
+        let heroInView = true;
+        let parallaxTicking = false;
+        const updateParallax = () => {
+            const rect = heroSection.getBoundingClientRect();
+            const progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+            const posY = 42 + progress * 16;
+            heroSection.style.backgroundPosition = `center center, center ${posY}%`;
+            parallaxTicking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!heroInView || parallaxTicking) return;
+            parallaxTicking = true;
+            requestAnimationFrame(updateParallax);
+        }, { passive: true });
+        new IntersectionObserver((entries) => {
+            entries.forEach(e => { heroInView = e.isIntersecting; });
+        }).observe(heroSection);
+        updateParallax();
+    }
 
     // ── SCROLL REVEAL (applies to any .r element on any page) ──
     const ro = new IntersectionObserver((entries) => {
