@@ -338,6 +338,12 @@
         .field textarea { resize: vertical; min-height: 140px; }
         .form-submit { display: flex; justify-content: center; margin-top: 8px; }
 
+        /* Shown after a successful submit, replacing the form */
+        .success-msg { display: none; text-align: center; }
+        .success-mark { font-size: 2rem; color: var(--terracotta); margin-bottom: 16px; }
+        .success-msg p { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 10px; }
+        .success-msg .success-sub { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--text-mid); }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .port-interactive { grid-template-columns: 1fr 1fr; }
@@ -549,7 +555,7 @@
     <p class="hero-sub r d2">Photography</p>
     <div class="hero-rule r d2"></div>
     <p class="hero-tag r d3">Visual storytelling rooted in feeling — capturing the moments that matter most.</p>
-    <a href="#portfolio" class="btn r d4">View My Work</a>
+    <a href="#portfolio" class="btn r d4">See the Work</a>
 
     <div class="scroll-hint">
         <span>Scroll</span>
@@ -560,45 +566,7 @@
 <!-- ── BOTANICAL DIVIDER ── -->
 <div class="botanical-divider">
     <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
-    <div class="botanical-divider-line"></div>
-</div>
-
-<!-- ── ABOUT ── -->
-<section id="about" class="sec">
-    <div class="sec-inner">
-        <div class="about-grid">
-
-            <div class="about-img-wrap r">
-                <div class="img-ph">
-                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/SallyGray.jpg?raw=true" alt="Sally Gray, photographer">
-                </div>
-                <div class="about-accent"></div>
-            </div>
-
-            <div class="about-content">
-                <span class="label r">About Sally</span>
-                <h2 class="h2 r">Storyteller.<br>Observer. <em>Human.</em></h2>
-                <div class="rule r"></div>
-                <div class="r d1">
-                    <p class="lead">"Wildly disinterested in content creation. Entirely obsessed with the human experience."</p>
-                    <p>I'm Sally Gray — with almost 10 years behind the camera, I bring an arsenal of posing guidance, technical skill, and the unshakable scrappiness you want in the person tasked with capturing your dynamic, fast-moving day.</p>
-                    <p>My style blends digital and film seamlessly — rich color, true-to-life skin tones, and an eye trained on natural light. Whether it's your wedding day, an afternoon with your family, or a quiet portrait session, I want you to forget I'm there, and feel everything when you look back.</p>
-                </div>
-                <div class="r d2" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:24px;">
-                    <a href="about.html" class="btn">Read My Story</a>
-                    <a href="#contact" class="btn btn-fill">Work With Me</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ── BOTANICAL DIVIDER 2 ── -->
-<div class="botanical-divider">
-    <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
     <div class="botanical-divider-line"></div>
 </div>
 
@@ -609,10 +577,10 @@
         <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px;">
             <div>
                 <span class="label r">The Work</span>
-                <h2 class="h2 r">Portfolio</h2>
+                <h2 class="h2 r">Moments Worth<br><em>Remembering</em></h2>
                 <div class="rule r"></div>
             </div>
-            <a href="https://clients.sallygrayphoto.com/portfolio" class="btn r">View All</a>
+            <a href="https://clients.sallygrayphoto.com/portfolio" class="btn r">See the Full Gallery</a>
         </div>
 
         <!-- Photo grid with lightbox -->
@@ -708,11 +676,18 @@
 <section id="quote-band">
     <div class="sec-inner">
         <div class="quote-band-mark r">"</div>
-        <p class="quote-band-text r d1">Sally is highly perceptive to her surroundings and pays attention to the little moments you want captured during your wedding day. She does this in an artistic way that truly sets her apart from other photographers.</p>
-        <p class="quote-band-cite r d2">Jolie Connor</p>
+        <p class="quote-band-text r d1">What sets Sally apart is her ability to capture real emotion and connection. Her photos don't just look beautiful; they feel meaningful. She has an incredible eye for relationships and moments, and more than once I've found myself genuinely emotional looking through her work.</p>
+        <p class="quote-band-cite r d2">Alex Hunt North</p>
         <div class="quote-band-rule r d3"></div>
     </div>
 </section>
+
+<!-- ── BOTANICAL DIVIDER ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
 
 <!-- ── EXPERIENCES ── -->
 <section id="experiences" class="sec">
@@ -720,7 +695,7 @@
         <div class="svc-header">
             <div class="svc-header-text">
                 <span class="label r">What I Offer</span>
-                <h2 class="h2 r">Experiences</h2>
+                <h2 class="h2 r">Choose Your<br><em>Experience</em></h2>
                 <div class="rule r"></div>
             </div>
         </div>
@@ -733,28 +708,28 @@
                         <div class="pcar-content">
                             <div class="pcar-name">Engagements</div>
                             <div class="pcar-des">Intimate engagement and elopement sessions — the quiet, tender lead-up to your wedding day, captured with the same honesty and care.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                     <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/wedding-hadley-carlos-002.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Weddings</div>
                             <div class="pcar-des">Every real moment, every quiet glance, every joyful tear. Your story told honestly.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                     <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/portrait-dex-001.jpg?raw=true'); background-position: center 20%;">
                         <div class="pcar-content">
                             <div class="pcar-name">Portraits</div>
                             <div class="pcar-des">Capturing personality over perfection, in natural light that feels entirely like you.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                     <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/family-001.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Families</div>
                             <div class="pcar-des">Relaxed, natural sessions — kids running, adults laughing. Real families, beautifully documented.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                 </div>
@@ -803,6 +778,51 @@
     </div>
 </section>
 
+<!-- ── BOTANICAL DIVIDER ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="sec">
+    <div class="sec-inner">
+        <div class="about-grid">
+
+            <div class="about-img-wrap r">
+                <div class="img-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/SallyGray.jpg?raw=true" alt="Sally Gray, Brevard NC wedding and lifestyle photographer">
+                </div>
+                <div class="about-accent"></div>
+            </div>
+
+            <div class="about-content">
+                <span class="label r">About Sally</span>
+                <h2 class="h2 r">Storyteller.<br>Observer. <em>Human.</em></h2>
+                <div class="rule r"></div>
+                <div class="r d1">
+                    <p class="lead">"Wildly disinterested in content creation. Entirely obsessed with the human experience."</p>
+                    <p>I'm Sally Gray — a Western North Carolina wedding and lifestyle photographer based in Brevard, NC, with almost 10 years behind the camera. I bring an arsenal of posing guidance, technical skill, and the unshakable scrappiness you want in the person tasked with capturing your dynamic, fast-moving day.</p>
+                    <p>My style blends digital and film seamlessly — rich color, true-to-life skin tones, and an eye trained on natural light. Whether it's your wedding day, an afternoon with your family, or a quiet portrait session, I want you to forget I'm there, and feel everything when you look back.</p>
+                </div>
+                <div class="r d2" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:24px;">
+                    <a href="about.html" class="btn">Read My Story</a>
+                    <a href="#contact" class="btn btn-fill">Work With Me</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── BOTANICAL DIVIDER 2 ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
+
 <!-- ── CONTACT ── -->
 <section id="contact" class="sec">
     <div class="sec-inner">
@@ -811,7 +831,7 @@
         <div class="rule r"></div>
         <p class="contact-text r">I'd love to hear about your vision. Whether you're planning a wedding, wanting family portraits, or have a creative project in mind — reach out and let's make something beautiful together.</p>
 
-        <form class="form r" name="contact" method="POST">
+        <form class="form r" id="contact-form" name="contact" action="https://formspree.io/f/xwvzenkz" method="POST">
             <div class="form-row">
                 <div class="field">
                     <label for="name">Your Name</label>
@@ -838,9 +858,16 @@
                 <textarea id="message" name="message" placeholder="Share your vision, date, or any details…"></textarea>
             </div>
             <div class="form-submit">
-                <button type="submit" class="btn btn-fill">Send Message</button>
+                <button type="submit" class="btn btn-fill" id="submit-btn">Send Message</button>
             </div>
         </form>
+
+        <!-- Success message, shown after submit -->
+        <div class="success-msg" id="success-msg">
+            <div class="success-mark">✦</div>
+            <p>I'll be in touch soon.</p>
+            <p class="success-sub">Thank you for reaching out — can't wait to hear more about your vision.</p>
+        </div>
     </div>
 </section>
 </main>
@@ -1008,6 +1035,38 @@ if (pcarNext && pcarPrev) {
         document.querySelector('.pcar-slide').prepend(items[items.length - 1]);
     });
 }
+
+// ── CONTACT FORM (AJAX submit via Formspree) ──
+const form       = document.getElementById('contact-form');
+const successMsg = document.getElementById('success-msg');
+const submitBtn  = document.getElementById('submit-btn');
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+        const res = await fetch(form.action, {
+            method:  'POST',
+            body:    new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+            form.style.display      = 'none';
+            successMsg.style.display = 'block';
+        } else {
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Send Message';
+            alert('Something went wrong — please try again or email me directly.');
+        }
+    } catch (err) {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong — please try again or email me directly.');
+    }
+});
 </script>
 </body>
 </html>

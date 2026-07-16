@@ -345,6 +345,12 @@
         .field textarea { resize: vertical; min-height: 140px; }
         .form-submit { display: flex; justify-content: center; margin-top: 8px; }
 
+        /* Shown after a successful submit, replacing the form */
+        .success-msg { display: none; text-align: center; }
+        .success-mark { font-size: 2rem; color: var(--terracotta); margin-bottom: 16px; }
+        .success-msg p { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--green); margin-bottom: 10px; }
+        .success-msg .success-sub { font-family: var(--sans); font-size: 0.88rem; font-weight: 300; color: var(--text-mid); }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
             .port-interactive { grid-template-columns: 1fr 1fr; }
@@ -527,6 +533,178 @@
      Page files (index.html, about.html, ...) assume this is already
      present — they do not redeclare any of it.
 ============================================================ -->
+
+<!-- ── STRUCTURED DATA (LocalBusiness + FAQPage) ──
+     Mirrors the FAQ content in about.html verbatim. Helps Google/AI search
+     engines identify this as a Brevard, NC wedding photographer and surface
+     the FAQ directly in rich results / AI answers. Update the FAQPage
+     entries here if the FAQ copy on about.html ever changes. -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.sallygrayphoto.com/#business",
+          "name": "Sally Gray Photography",
+          "image": "https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/Logo.png?raw=true",
+          "url": "https://www.sallygrayphoto.com/",
+          "description": "Western North Carolina wedding and lifestyle photographer based in Brevard, NC, blending documentary storytelling with an editorial eye across both film and digital.",
+          "priceRange": "$700-$6000",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Brevard",
+            "addressRegion": "NC",
+            "addressCountry": "US"
+          },
+          "areaServed": [
+            {
+              "@type": "Place",
+              "name": "Brevard, NC"
+            },
+            {
+              "@type": "Place",
+              "name": "Blue Ridge Mountains"
+            },
+            {
+              "@type": "Place",
+              "name": "Asheville, NC"
+            },
+            {
+              "@type": "Place",
+              "name": "Hendersonville, NC"
+            },
+            {
+              "@type": "Place",
+              "name": "Cashiers, NC"
+            }
+          ],
+          "sameAs": [
+            "https://www.instagram.com/sallygrayphotography/"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.sallygrayphoto.com/about#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Where are you based, and where do you photograph weddings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I'm a Western North Carolina wedding and lifestyle photographer based in Brevard, NC, photographing celebrations throughout the Blue Ridge Mountains, Asheville, Hendersonville, Cashiers, and beyond. I love working with couples who are drawn to meaningful places, beautiful landscapes, and photographs that feel like a true reflection of who they are. Whether your wedding day is at a luxe venue, tucked away in the woods, at home with your favorite people, or somewhere completely unexpected — I'm in."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is your photography style?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "My work blends a documentary approach with an editorial eye. I'm drawn to natural moments, thoughtful details, movement, and all the little in-between pieces that become the memories you treasure most. I also have an inner art brat who absolutely lives for a beautifully posed group shot, unusual framing, and those unexpected visual moments that make an image feel like art. I'll guide you when you need it — especially during portraits! — but I never want your photos to feel like a performance. My goal is for you to feel comfortable, present, and completely yourself."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph weddings with film?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! As much as possible. I love incorporating film photography because of its timeless colors, softness, and nostalgic feeling. Digital cameras shine in places where film can struggle, so I use both mediums together to create a complete story of your day. My digital editing style is inspired by my film scans: warm, natural, and true-to-life, with an emphasis on preserving the atmosphere and emotion of your wedding."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How far in advance should we book our wedding photographer?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most couples book 12–18 months in advance, especially for popular spring and fall dates in Western North Carolina. That said, I've photographed some wonderful weddings booked only 6–8 months out. If your date is approaching, reach out anyway — I'd love to see if we're a good fit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How many hours of wedding photography coverage do we need?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most single-day weddings include 6–10 hours of coverage, but every celebration is different. I also love multi-day weddings, welcome parties, and weekend-long experiences. Whether you're planning an intimate elopement or a full celebration with all your favorite people, I'll help you choose coverage that fits your story — not a cookie-cutter package."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you help with wedding photography timelines?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. Creating a relaxed, intentional timeline is one of my favorite parts of the process. I'll help you think through light, weather, travel time, family portraits, and all the moments that matter. My goal is for photography to quietly add to your experience — not make you feel rushed, stressed, or staged."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you travel for weddings and sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! I'm available worldwide, with travel fees that won't require taking out a mortgage. I especially love mountain weddings, outdoor celebrations, and locations with a strong sense of place. Family homes and small venues are just as spectacular to me as sprawling estates and gilded yachts. If you have a dream location, I want to hear about it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph engagement sessions?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! Engagement sessions are one of my favorite ways to work together before your wedding day. Wedding clients receive an exclusive discount on engagement sessions, and I love using this time to help you feel comfortable in front of the camera before the big day."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What should we wear for our session?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best outfits are the ones that make you feel confident and comfortable. I love clothing with movement, texture, and colors that feel natural in your environment. For Western North Carolina sessions, earthy tones, soft layers, and timeless pieces photograph beautifully. Punchy colors and bold silhouettes are a fun and stylish choice as well! I'm always happy to help with outfit ideas and location planning."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you photograph families and couples outside of weddings?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes! I photograph families, couples, maternity sessions, portraits, and everyday seasons of life. My approach is relaxed and connection-focused. I'm not interested in forcing perfect smiles — although I'm pretty good at coaxing them out of even the grumpiest toddler. I want to capture the relationships, personalities, and little moments that make your family yours."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What happens after our session or wedding?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "After your session or wedding, I hand-select and edit your digital images with my signature warm, timeless style. You'll receive sneak peeks within 72 hours of your session. Weddings are delivered within 8–12 weeks, and all other sessions are delivered within 4 weeks. While I'm working on the digital side, professional film labs are carefully developing and scanning your film. Your final gallery will be delivered through an online platform where you can view, download, share, and print your images. Printing rights are always included."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Why should we choose Sally Gray Photography?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I could tell you about my years of experience, gear list, archives, or the pretty pictures you'll find throughout my website. But here's what I hear again and again from clients, vendors, and fellow photographers: I thrive in chaos. Wedding days are beautiful because they're real — and real things happen. When your timeline shifts, the weather changes, or something unexpected pops up, I'll keep things positive, creative, and fun. You focus on getting married. I'll make sure you look and feel amazing doing it. My approach is playful and calm, intentional and rooted in connection. I'll guide you when you need it, step back when you don't, and make sure your experience feels just as meaningful as the photographs themselves."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What does photography cost?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Wedding collections begin at $4,000, with most couples investing between $4,800–$6,000. Family sessions begin at $700. All collections include film photography, printing rights, and planning assistance. These aren't add-ons — they're part of the experience I believe every client deserves."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer payment plans?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Girl yes. In this economy?? I love a pay-in-four option as much as the next person, and I'm happy to create custom payment plans for wedding photography. Family and portrait sessions can also be split into two payments for those who need a little more flexibility. If you're excited to work together but feeling nervous about the investment, reach out. Let's talk."
+              }
+            }
+          ]
+        }
+      ]
+    }
+</script>
+
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap');
 
@@ -687,6 +865,29 @@
     .d3 { transition-delay: 0.3s; }
     .d4 { transition-delay: 0.4s; }
 
+    /* ── FLOWER BLOOM (botanical divider images opt in with .bloom) ── */
+    .botanical-divider-img.bloom {
+        opacity: 0;
+        transform: scale(0.35) rotate(-25deg);
+        transition: opacity 1.7s cubic-bezier(0.34, 1.56, 0.64, 1), transform 2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .botanical-divider-img.bloom.in { opacity: 0.75; transform: scale(1) rotate(0deg); }
+
+    /* ── STAGGERED WORD REVEAL (applied automatically to .h2 / .hero-name) ── */
+    .word { display: inline-block; opacity: 0; transform: translateY(0.4em); }
+    .r.in .word { animation: word-in 1.6s cubic-bezier(0.22,1,0.36,1) forwards; animation-delay: calc(var(--i, 0) * 0.14s); }
+    @keyframes word-in { to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+        .botanical-divider-img.bloom,
+        .word {
+            transition: none !important;
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    }
+
     /* ── RESPONSIVE (nav + shared layout only — page sections handle their own) ── */
     @media (max-width: 768px) {
         .sec { padding: 72px 24px; }
@@ -774,6 +975,71 @@ document.addEventListener('DOMContentLoaded', () => {
         a.addEventListener('click', () => mobNav.classList.remove('open'));
     });
 
+    // ── STAGGERED WORD REVEAL — wrap each word of every heading in its own
+    // span so .word's CSS animation (see <style>) can stagger them in. Runs
+    // before anything is visible (headings start at opacity:0 via .r), so
+    // there's no flash of unsplit text. Recurses into <em>, leaves <br> alone.
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReducedMotion) {
+        const splitWords = (el) => {
+            const walk = (node) => {
+                const frag = document.createDocumentFragment();
+                node.childNodes.forEach(child => {
+                    if (child.nodeType === Node.TEXT_NODE) {
+                        child.textContent.split(/(\s+)/).forEach(part => {
+                            if (part === '') return;
+                            if (/^\s+$/.test(part)) {
+                                frag.appendChild(document.createTextNode(part));
+                            } else {
+                                const span = document.createElement('span');
+                                span.className = 'word';
+                                span.textContent = part;
+                                frag.appendChild(span);
+                            }
+                        });
+                    } else if (child.nodeName === 'BR') {
+                        frag.appendChild(child.cloneNode());
+                    } else {
+                        const clone = child.cloneNode(false);
+                        clone.appendChild(walk(child));
+                        frag.appendChild(clone);
+                    }
+                });
+                return frag;
+            };
+            const fragment = walk(el);
+            el.textContent = '';
+            el.appendChild(fragment);
+            el.querySelectorAll('.word').forEach((w, i) => w.style.setProperty('--i', i));
+        };
+        document.querySelectorAll('.h2, .hero-name').forEach(splitWords);
+    }
+
+    // ── HERO PARALLAX — nudges just the photo layer's vertical position as
+    // #hero scrolls through view. Skipped entirely on reduced-motion, and
+    // does no work once the hero has scrolled out of view.
+    const heroSection = document.getElementById('hero');
+    if (heroSection && !prefersReducedMotion) {
+        let heroInView = true;
+        let parallaxTicking = false;
+        const updateParallax = () => {
+            const rect = heroSection.getBoundingClientRect();
+            const progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+            const posY = 42 + progress * 16;
+            heroSection.style.backgroundPosition = `center center, center ${posY}%`;
+            parallaxTicking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!heroInView || parallaxTicking) return;
+            parallaxTicking = true;
+            requestAnimationFrame(updateParallax);
+        }, { passive: true });
+        new IntersectionObserver((entries) => {
+            entries.forEach(e => { heroInView = e.isIntersecting; });
+        }).observe(heroSection);
+        updateParallax();
+    }
+
     // ── SCROLL REVEAL (applies to any .r element on any page) ──
     const ro = new IntersectionObserver((entries) => {
         entries.forEach(e => {
@@ -828,7 +1094,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <p class="hero-sub r d2">Photography</p>
     <div class="hero-rule r d2"></div>
     <p class="hero-tag r d3">Visual storytelling rooted in feeling — capturing the moments that matter most.</p>
-    <a href="#portfolio" class="btn r d4">View My Work</a>
+    <a href="#portfolio" class="btn r d4">See the Work</a>
 
     <div class="scroll-hint">
         <span>Scroll</span>
@@ -839,45 +1105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- ── BOTANICAL DIVIDER ── -->
 <div class="botanical-divider">
     <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
-    <div class="botanical-divider-line"></div>
-</div>
-
-<!-- ── ABOUT ── -->
-<section id="about" class="sec">
-    <div class="sec-inner">
-        <div class="about-grid">
-
-            <div class="about-img-wrap r">
-                <div class="img-ph">
-                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/SallyGray.jpg?raw=true" alt="Sally Gray, photographer">
-                </div>
-                <div class="about-accent"></div>
-            </div>
-
-            <div class="about-content">
-                <span class="label r">About Sally</span>
-                <h2 class="h2 r">Storyteller.<br>Observer. <em>Human.</em></h2>
-                <div class="rule r"></div>
-                <div class="r d1">
-                    <p class="lead">"Wildly disinterested in content creation. Entirely obsessed with the human experience."</p>
-                    <p>I'm Sally Gray — with almost 10 years behind the camera, I bring an arsenal of posing guidance, technical skill, and the unshakable scrappiness you want in the person tasked with capturing your dynamic, fast-moving day.</p>
-                    <p>My style blends digital and film seamlessly — rich color, true-to-life skin tones, and an eye trained on natural light. Whether it's your wedding day, an afternoon with your family, or a quiet portrait session, I want you to forget I'm there, and feel everything when you look back.</p>
-                </div>
-                <div class="r d2" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:24px;">
-                    <a href="about.html" class="btn">Read My Story</a>
-                    <a href="#contact" class="btn btn-fill">Work With Me</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ── BOTANICAL DIVIDER 2 ── -->
-<div class="botanical-divider">
-    <div class="botanical-divider-line"></div>
-    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img">
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
     <div class="botanical-divider-line"></div>
 </div>
 
@@ -888,10 +1116,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px;">
             <div>
                 <span class="label r">The Work</span>
-                <h2 class="h2 r">Portfolio</h2>
+                <h2 class="h2 r">Moments Worth<br><em>Remembering</em></h2>
                 <div class="rule r"></div>
             </div>
-            <a href="https://clients.sallygrayphoto.com/portfolio" class="btn r">View All</a>
+            <a href="https://clients.sallygrayphoto.com/portfolio" class="btn r">See the Full Gallery</a>
         </div>
 
         <!-- Photo grid with lightbox -->
@@ -987,11 +1215,18 @@ document.addEventListener('DOMContentLoaded', () => {
 <section id="quote-band">
     <div class="sec-inner">
         <div class="quote-band-mark r">"</div>
-        <p class="quote-band-text r d1">Sally is highly perceptive to her surroundings and pays attention to the little moments you want captured during your wedding day. She does this in an artistic way that truly sets her apart from other photographers.</p>
-        <p class="quote-band-cite r d2">Jolie Connor</p>
+        <p class="quote-band-text r d1">What sets Sally apart is her ability to capture real emotion and connection. Her photos don't just look beautiful; they feel meaningful. She has an incredible eye for relationships and moments, and more than once I've found myself genuinely emotional looking through her work.</p>
+        <p class="quote-band-cite r d2">Alex Hunt North</p>
         <div class="quote-band-rule r d3"></div>
     </div>
 </section>
+
+<!-- ── BOTANICAL DIVIDER ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
 
 <!-- ── EXPERIENCES ── -->
 <section id="experiences" class="sec">
@@ -999,7 +1234,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="svc-header">
             <div class="svc-header-text">
                 <span class="label r">What I Offer</span>
-                <h2 class="h2 r">Experiences</h2>
+                <h2 class="h2 r">Choose Your<br><em>Experience</em></h2>
                 <div class="rule r"></div>
             </div>
         </div>
@@ -1012,28 +1247,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="pcar-content">
                             <div class="pcar-name">Engagements</div>
                             <div class="pcar-des">Intimate engagement and elopement sessions — the quiet, tender lead-up to your wedding day, captured with the same honesty and care.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                     <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/wedding-hadley-carlos-002.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Weddings</div>
                             <div class="pcar-des">Every real moment, every quiet glance, every joyful tear. Your story told honestly.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                     <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/portrait-dex-001.jpg?raw=true'); background-position: center 20%;">
                         <div class="pcar-content">
                             <div class="pcar-name">Portraits</div>
                             <div class="pcar-des">Capturing personality over perfection, in natural light that feels entirely like you.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                     <div class="pcar-item" style="background-image: url('https://github.com/ct-analytica/SallyGrayPhotography/blob/main/carousel/family-001.jpg?raw=true');">
                         <div class="pcar-content">
                             <div class="pcar-name">Families</div>
                             <div class="pcar-des">Relaxed, natural sessions — kids running, adults laughing. Real families, beautifully documented.</div>
-                            <a href="#contact" class="pcar-link"><button>Get in Touch</button></a>
+                            <a href="#contact" class="pcar-link"><button>Let's Talk</button></a>
                         </div>
                     </div>
                 </div>
@@ -1082,6 +1317,51 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </section>
 
+<!-- ── BOTANICAL DIVIDER ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="sec">
+    <div class="sec-inner">
+        <div class="about-grid">
+
+            <div class="about-img-wrap r">
+                <div class="img-ph">
+                    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/SallyGray.jpg?raw=true" alt="Sally Gray, Brevard NC wedding and lifestyle photographer">
+                </div>
+                <div class="about-accent"></div>
+            </div>
+
+            <div class="about-content">
+                <span class="label r">About Sally</span>
+                <h2 class="h2 r">Storyteller.<br>Observer. <em>Human.</em></h2>
+                <div class="rule r"></div>
+                <div class="r d1">
+                    <p class="lead">"Wildly disinterested in content creation. Entirely obsessed with the human experience."</p>
+                    <p>I'm Sally Gray — a Western North Carolina wedding and lifestyle photographer based in Brevard, NC, with almost 10 years behind the camera. I bring an arsenal of posing guidance, technical skill, and the unshakable scrappiness you want in the person tasked with capturing your dynamic, fast-moving day.</p>
+                    <p>My style blends digital and film seamlessly — rich color, true-to-life skin tones, and an eye trained on natural light. Whether it's your wedding day, an afternoon with your family, or a quiet portrait session, I want you to forget I'm there, and feel everything when you look back.</p>
+                </div>
+                <div class="r d2" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:24px;">
+                    <a href="about.html" class="btn">Read My Story</a>
+                    <a href="#contact" class="btn btn-fill">Work With Me</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── BOTANICAL DIVIDER 2 ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
+
 <!-- ── CONTACT ── -->
 <section id="contact" class="sec">
     <div class="sec-inner">
@@ -1090,7 +1370,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="rule r"></div>
         <p class="contact-text r">I'd love to hear about your vision. Whether you're planning a wedding, wanting family portraits, or have a creative project in mind — reach out and let's make something beautiful together.</p>
 
-        <form class="form r" name="contact" method="POST">
+        <form class="form r" id="contact-form" name="contact" action="https://formspree.io/f/xwvzenkz" method="POST">
             <div class="form-row">
                 <div class="field">
                     <label for="name">Your Name</label>
@@ -1117,9 +1397,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 <textarea id="message" name="message" placeholder="Share your vision, date, or any details…"></textarea>
             </div>
             <div class="form-submit">
-                <button type="submit" class="btn btn-fill">Send Message</button>
+                <button type="submit" class="btn btn-fill" id="submit-btn">Send Message</button>
             </div>
         </form>
+
+        <!-- Success message, shown after submit -->
+        <div class="success-msg" id="success-msg">
+            <div class="success-mark">✦</div>
+            <p>I'll be in touch soon.</p>
+            <p class="success-sub">Thank you for reaching out — can't wait to hear more about your vision.</p>
+        </div>
     </div>
 </section>
 </main>
@@ -1287,6 +1574,38 @@ if (pcarNext && pcarPrev) {
         document.querySelector('.pcar-slide').prepend(items[items.length - 1]);
     });
 }
+
+// ── CONTACT FORM (AJAX submit via Formspree) ──
+const form       = document.getElementById('contact-form');
+const successMsg = document.getElementById('success-msg');
+const submitBtn  = document.getElementById('submit-btn');
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+        const res = await fetch(form.action, {
+            method:  'POST',
+            body:    new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+            form.style.display      = 'none';
+            successMsg.style.display = 'block';
+        } else {
+            submitBtn.disabled    = false;
+            submitBtn.textContent = 'Send Message';
+            alert('Something went wrong — please try again or email me directly.');
+        }
+    } catch (err) {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong — please try again or email me directly.');
+    }
+});
 </script>
 
 <!-- ============================================================
