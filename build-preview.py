@@ -21,6 +21,7 @@ root = pathlib.Path(__file__).parent
 PAGES = {
     "index.html": "test.html",
     "about.html": "test-about.html",
+    "404.html": "test-404.html",
 }
 
 

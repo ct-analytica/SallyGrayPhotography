@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Sally Gray Photography</title>
+
+    <!--
+        The nav, custom cursor, fonts, color tokens, and shared component
+        styles (.sec, .label, .h2, .rule, .btn, .botanical-divider, .r
+        scroll-reveal) live in header.html, pasted into Squarespace's Code
+        Injection > Header. The footer lives in footer.html, pasted into
+        Code Injection > Footer. This file is the body content for
+        Squarespace's designated 404 page (Settings > Design > 404 Page).
+    -->
+    <style>
+        .error-page {
+            min-height: 64vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center;
+            padding: 168px 40px 40px;
+            background: var(--bg);
+        }
+        .error-code {
+            font-family: var(--serif); font-style: italic;
+            font-size: clamp(4.5rem, 13vw, 8.5rem);
+            color: var(--terracotta); opacity: 0.85;
+            line-height: 1; margin-bottom: 8px;
+        }
+        .error-text {
+            max-width: 460px; margin: 0 auto 44px;
+            font-size: 0.95rem; font-weight: 300;
+            color: var(--text-mid); line-height: 1.9;
+        }
+        .error-buttons {
+            display: flex; align-items: center; justify-content: center;
+            gap: 20px; flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .error-page { padding: 140px 24px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<main>
+<section class="error-page">
+    <div class="error-code r">404</div>
+    <span class="label r" style="text-align:center; display:block;">Oops</span>
+    <h1 class="h2 r" style="text-align:center;">This Page Wandered<br>Off <em>Somewhere Scenic</em></h1>
+    <div class="rule r" style="margin-left:auto; margin-right:auto;"></div>
+    <p class="error-text r d1">The page you're looking for doesn't exist — maybe it eloped. Let's get you back to where the good stuff is.</p>
+    <div class="error-buttons r d2">
+        <a href="/" class="btn">Back to Home</a>
+        <a href="/#portfolio" class="btn btn-fill">See the Work</a>
+    </div>
+</section>
+
+<!-- ── BOTANICAL DIVIDER ── -->
+<div class="botanical-divider">
+    <div class="botanical-divider-line"></div>
+    <img src="https://github.com/ct-analytica/SallyGrayPhotography/blob/main/designs/flower.png?raw=true" alt="" class="botanical-divider-img r bloom">
+    <div class="botanical-divider-line"></div>
+</div>
+</main>
+
+</body>
+</html>
