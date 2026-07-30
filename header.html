@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const frag = document.createDocumentFragment();
                 node.childNodes.forEach(child => {
                     if (child.nodeType === Node.TEXT_NODE) {
-                        child.textContent.split(/(\s+)/).forEach(part => {
+                        child.textContent.sp  lit(/(\s+)/).forEach(part => {
                             if (part === '') return;
                             if (/^\s+$/.test(part)) {
                                 frag.appendChild(document.createTextNode(part));
